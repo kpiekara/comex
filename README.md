@@ -12,3 +12,9 @@ It's up to you to look after your crew, find food and weapons, and win battles. 
 |---|---|
 |Language|C#/.NET|
 |Graphics|[SFML library](https://www.sfml-dev.org/)|
+
+## Tutorial 
+
+Here, you will find descriptions of the main topics related to this project. You will learn what specific parts of the code do and why certain decisions were made.
+
+* [Application starter in SFML](docs\SFML%20application.md)
