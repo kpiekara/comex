@@ -1,4 +1,8 @@
 # COMEX
+<p align="center">
+  <img src="https://github.com/kpiekara/comex/assets/5881352/e8f65a46-3cab-4e35-8a61-aa9df4b35860" />
+</p>
+  
 ## About game
 Dive into an amazing adventure in a world where there's more water than land. Imagine a place with huge oceans and just a few tiny islands. No one knows what's beyond the vast sea.
 
