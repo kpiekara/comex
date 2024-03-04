@@ -1,18 +1,24 @@
-﻿using SFML.Graphics;
-using SFML.Window;
+﻿using Game;
+using SFML.System;
 
-var mode = new VideoMode(800, 600);
-var window = new RenderWindow(mode, "SFML works!");
+var mode = new SFML.Window.VideoMode(1680, 1050);
+var window = new SFML.Graphics.RenderWindow(mode, "SFML works!");
+var tree = new GameTree();
+tree.AddCircle();
 
-var circle = new CircleShape(100)
-{
-    FillColor = Color.Blue
-};
-
+var clock = new Clock();
+var timeSinceLastUpdate = Time.Zero;
 while (window.IsOpen)
 {
+    var dt = clock.Restart();
+    timeSinceLastUpdate += dt;
+    while (timeSinceLastUpdate > GameConfig.TimePerFrame)
+    {
+        timeSinceLastUpdate -= GameConfig.TimePerFrame;
+        tree.Update(GameConfig.TimePerFrameInSeconds);
+    }
+
     window.DispatchEvents();
-    window.Clear();
-    window.Draw(circle);
+    window.Draw(tree);
     window.Display();
 }
