@@ -1,4 +1,4 @@
-# Fixed time step lopp
+# Fixed time step loop
 
 ## Overview
 A fixed time step loop in a 2D game is a method where the game logic updates at a constant rate, regardless of how fast the game is being rendered or how quickly the hardware can perform calculations. Here's a simplified explanation of the advantages and disadvantages of using a fixed time step loop:
