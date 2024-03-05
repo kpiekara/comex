@@ -1,9 +1,14 @@
 ﻿using Game;
+using Game.Tree;
+using SFML.Graphics;
 using SFML.System;
+using SFML.Window;
 
-var mode = new SFML.Window.VideoMode(1680, 1050);
-var window = new SFML.Graphics.RenderWindow(mode, "SFML works!");
+var mode = new VideoMode(1680, 1050);
+var window = new RenderWindow(mode, "SFML works!");
+
 var tree = new GameTree();
+tree.AttachEvents(window);
 tree.AddCircle();
 
 var clock = new Clock();
