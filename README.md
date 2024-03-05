@@ -22,4 +22,4 @@ It's up to you to look after your crew, find food and weapons, and win battles. 
 Here, you will find descriptions of the main topics related to this project. You will learn what specific parts of the code do and why certain decisions were made.
 
 * [Application starter in SFML](docs/SFML%20application.md)
-* [Fixed time step lopp](docs/Fixed%20time%20step.md)
+* [Fixed time step loop](docs/Fixed%20time%20step.md)
