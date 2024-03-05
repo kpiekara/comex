@@ -23,3 +23,14 @@ Here, you will find descriptions of the main topics related to this project. You
 
 * [Application starter in SFML](docs/SFML%20application.md)
 * [Fixed time step loop](docs/Fixed%20time%20step.md)
+
+## Milestones
+
+- [ ] Tileset map (vertex array)
+- [ ] Movement system (A* algorithm)
+- [ ] Visiting locations (scene manager)
+- [ ] Turns system
+- [ ] Enemies (FSM)
+- [ ] Simplified fight (battle emulator)
+- [ ] Simplified trading (economy emulator)
+- [ ] Simplified politics (relations emulator)
