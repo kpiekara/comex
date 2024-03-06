@@ -1,4 +1,4 @@
-﻿namespace Game.Tree;
+﻿namespace Game.Engine.Tree;
 
 public class GameObject
 {

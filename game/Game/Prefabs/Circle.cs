@@ -1,5 +1,5 @@
-﻿using Game.Components;
-using Game.Tree;
+﻿using Game.Engine.Components;
+using Game.Engine.Tree;
 using SFML.Graphics;
 
 namespace Game.Prefabs;

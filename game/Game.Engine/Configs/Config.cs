@@ -1,13 +1,13 @@
 ﻿using SFML.System;
 
-namespace Game;
+namespace Game.Engine.Configs;
 
-public static class GameConfig
+public static class Config
 {
     public static Time TimePerFrame { get; }
     public static float TimePerFrameInSeconds { get; }
 
-    static GameConfig()
+    static Config()
     {
         TimePerFrame = Time.FromSeconds(1.0f / 60.0f);
         TimePerFrameInSeconds = TimePerFrame.AsSeconds();

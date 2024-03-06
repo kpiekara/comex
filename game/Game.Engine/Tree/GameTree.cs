@@ -1,16 +1,21 @@
-﻿using Game.Components;
-using Game.Prefabs;
+﻿using Game.Engine.Components;
 using SFML.Graphics;
 
-namespace Game.Tree;
+namespace Game.Engine.Tree;
 
-public class GameTree : Drawable
+public interface IGameTree
+{
+    GameObject Add(GameObject gameObject);
+}
+
+class GameTree : Drawable, IGameTree
 {
     private readonly List<GameObject> _gameObjects = new();
 
-    public void AddCircle()
+    public GameObject Add(GameObject gameObject)
     {
-        _gameObjects.Add(new Circle());
+        _gameObjects.Add(gameObject);
+        return gameObject;
     }
 
     public void Update(float time)

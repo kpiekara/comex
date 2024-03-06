@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Playground", "Playground\Pl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Game", "Game\Game.csproj", "{BA87D887-FE8B-4B4B-9980-98448262350A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Game.Engine", "Game.Engine\Game.Engine.csproj", "{0FA813C4-E9A4-4147-AD96-FA48AC546610}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{BA87D887-FE8B-4B4B-9980-98448262350A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA87D887-FE8B-4B4B-9980-98448262350A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BA87D887-FE8B-4B4B-9980-98448262350A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0FA813C4-E9A4-4147-AD96-FA48AC546610}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FA813C4-E9A4-4147-AD96-FA48AC546610}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FA813C4-E9A4-4147-AD96-FA48AC546610}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FA813C4-E9A4-4147-AD96-FA48AC546610}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

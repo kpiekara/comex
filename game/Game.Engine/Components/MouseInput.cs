@@ -1,7 +1,7 @@
 ﻿using SFML.Graphics;
 using SFML.Window;
 
-namespace Game.Components;
+namespace Game.Engine.Components;
 
 public enum MouseEventKind
 {

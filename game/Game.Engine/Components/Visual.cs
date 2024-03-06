@@ -1,6 +1,6 @@
 ﻿using SFML.Graphics;
 
-namespace Game.Components;
+namespace Game.Engine.Components;
 
 public class Visual : Drawable
 {
