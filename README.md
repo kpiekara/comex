@@ -31,6 +31,11 @@ Here, you will find descriptions of the main topics related to this project. You
 - [ ] Visiting locations (scene manager)
 - [ ] Turns system
 - [ ] Enemies (FSM)
-- [ ] Simplified fight (battle emulator)
-- [ ] Simplified trading (economy emulator)
-- [ ] Simplified politics (relations emulator)
+- [ ] Fight module (battle simulation, hero stats, player stats)
+- [ ] Simplified trading (economy simulator, cities economy, village economy, world event system)
+- [ ] Simplified politics (relations simulator, likes and dislikes)
+
+## Economy system - Rumor
+
+- [ ] event propagation with graph
+- [ ] event geneation system
