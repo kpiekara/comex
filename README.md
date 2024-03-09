@@ -35,7 +35,11 @@ Here, you will find descriptions of the main topics related to this project. You
 - [ ] Simplified trading (economy simulator, cities economy, village economy, world event system)
 - [ ] Simplified politics (relations simulator, likes and dislikes)
 
-## Economy system - Rumor
+## Economy system - Rumor Engine
 
 - [ ] event propagation with graph
 - [ ] event geneation system
+
+## Battle system - Blitz Engine
+
+- [ ] symulate fights based on army factors
