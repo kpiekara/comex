@@ -35,11 +35,17 @@ Here, you will find descriptions of the main topics related to this project. You
 - [ ] Simplified trading (economy simulator, cities economy, village economy, world event system)
 - [ ] Simplified politics (relations simulator, likes and dislikes)
 
-## Economy system - Rumor Engine
+## Economy system - Rumor Module
 
 - [ ] event propagation with graph
 - [ ] event geneation system
 
-## Battle system - Blitz Engine
+## Battle system - Blitz Module
 
 - [ ] symulate fights based on army factors
+
+## Relations system - Ambition Module
+
+- [ ] driver character decisions based on life goals and aspirations
+- [ ] change life goals and aspiration due to important events in live
+- [ ] build characters based on character trait pars (neagitve + positive)
