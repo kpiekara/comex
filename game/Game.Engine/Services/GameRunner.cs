@@ -23,6 +23,9 @@ class GameRunner : IGameRunner
         var window = new RenderWindow(mode, "SFML works!");
         
         _gameTree.AttachEvents(window);
+        
+        var camera = new Camera(window.GetView());
+        camera.AttachEvents(window);
 
         var clock = new Clock();
         var timeSinceLastUpdate = Time.Zero;
@@ -34,9 +37,12 @@ class GameRunner : IGameRunner
             {
                 timeSinceLastUpdate -= Config.TimePerFrame;
                 _gameTree.Update(Config.TimePerFrameInSeconds);
+                camera.Update(Config.TimePerFrameInSeconds);
             }
 
             window.DispatchEvents();
+            window.Clear();
+            window.SetView(camera.GetView());
             window.Draw(_gameTree);
             window.Display();
         }

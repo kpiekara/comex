@@ -1,4 +1,5 @@
 ﻿using SFML.Graphics;
+using SFML.System;
 
 namespace Game.Engine.Components;
 
@@ -17,6 +18,11 @@ public class Visual : Drawable
     public FloatRect GetGlobalBounds()
     {
         return _circle.GetGlobalBounds();
+    }
+
+    public void SetPosition(int x, int y)
+    {
+        _circle.Position = new Vector2f(x, y);
     }
 
     public void SetColor(Color color)

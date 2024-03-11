@@ -9,7 +9,7 @@ public enum MouseEventKind
     Released
 }
 
-public delegate void ClickEventHandler(int x, int y);
+public delegate void ClickEventHandler(float x, float y);
 public delegate void UnClickEventHandler();
 
 public class MouseInput
@@ -26,7 +26,7 @@ public class MouseInput
         _area = area;
     }
     
-    public bool MousePressed(int x, int y, Mouse.Button button, MouseEventKind eventKind)
+    public bool MousePressed(float x, float y,Mouse.Button button, MouseEventKind eventKind)
     {
         var clickIn = _area.Contains(x, y);
         if (!clickIn)

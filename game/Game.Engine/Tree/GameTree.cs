@@ -1,5 +1,6 @@
 ﻿using Game.Engine.Components;
 using SFML.Graphics;
+using SFML.System;
 
 namespace Game.Engine.Tree;
 
@@ -48,22 +49,30 @@ class GameTree : Drawable, IGameTree
 
         window.MouseButtonPressed += (sender, args) =>
         {
-            foreach (var element in _gameObjects)
+            if (sender is RenderWindow rw)
             {
-                if (element.Has<MouseInput>())
+                foreach (var element in _gameObjects)
                 {
-                    element.Get<MouseInput>().MousePressed(args.X, args.Y, args.Button, MouseEventKind.Pressed);
+                    if (element.Has<MouseInput>())
+                    {
+                        var pos = rw.MapPixelToCoords(new Vector2i(args.X, args.Y));
+                        element.Get<MouseInput>().MousePressed(pos.X, pos.Y, args.Button, MouseEventKind.Pressed);
+                    }
                 }
             }
         };
 
         window.MouseButtonReleased += (sender, args) =>
         {
-            foreach (var element in _gameObjects)
+            if (sender is RenderWindow rw)
             {
-                if (element.Has<MouseInput>())
+                foreach (var element in _gameObjects)
                 {
-                    element.Get<MouseInput>().MousePressed(args.X, args.Y, args.Button, MouseEventKind.Released);
+                    if (element.Has<MouseInput>())
+                    {
+                        var pos = rw.MapPixelToCoords(new Vector2i(args.X, args.Y));
+                        element.Get<MouseInput>().MousePressed(pos.X, pos.Y, args.Button, MouseEventKind.Released);
+                    }
                 }
             }
         };

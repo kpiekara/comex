@@ -6,6 +6,12 @@ public static class Config
 {
     public static Time TimePerFrame { get; }
     public static float TimePerFrameInSeconds { get; }
+    
+    public static float CameraSpeed => 800f;
+    public static float WorldZoomSpeed => 0.3f;
+    public static float WorldZoomMin => 0.5f;
+    public static float WorldZoomMax => 8f;
+    
 
     static Config()
     {
