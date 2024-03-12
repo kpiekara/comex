@@ -1,4 +1,5 @@
 ﻿using Game.Engine.Components;
+using Game.Engine.Services;
 using SFML.Graphics;
 using SFML.System;
 
@@ -73,6 +74,20 @@ class GameTree : Drawable, IGameTree
                         var pos = rw.MapPixelToCoords(new Vector2i(args.X, args.Y));
                         element.Get<MouseInput>().MousePressed(pos.X, pos.Y, args.Button, MouseEventKind.Released);
                     }
+                }
+            }
+        };
+    }
+
+    public void AttachCameraEvents(Camera camera)
+    {
+        camera.CameraMoved += position =>
+        {
+            foreach (var element in _gameObjects)
+            {
+                if (element.Has<CameraListener>())
+                {
+                    element.Get<CameraListener>().SetPosition(position);
                 }
             }
         };

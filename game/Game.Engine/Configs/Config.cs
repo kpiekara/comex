@@ -12,6 +12,9 @@ public static class Config
     public static float WorldZoomMin => 0.5f;
     public static float WorldZoomMax => 8f;
     
+    public static uint ScreenWidth => 1680;
+    public static uint ScreenHeight => 1050;
+    
 
     static Config()
     {

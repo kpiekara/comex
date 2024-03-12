@@ -26,6 +26,7 @@ class GameRunner : IGameRunner
         
         var camera = new Camera(window.GetView());
         camera.AttachEvents(window);
+        _gameTree.AttachCameraEvents(camera);
 
         var clock = new Clock();
         var timeSinceLastUpdate = Time.Zero;

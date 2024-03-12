@@ -6,8 +6,12 @@ using SFML.Window;
 
 namespace Game.Engine.Services;
 
+public delegate void CameraMovedEventHandler(Vector2f position);
+
 public class Camera
 {
+    public event CameraMovedEventHandler? CameraMoved;
+    
     private readonly View _view;
 
     private float _wheelDelta = 0f;
@@ -63,6 +67,7 @@ public class Camera
         _currentMoveY = Interpolation.SmoothDamp(_currentMoveY, _moveTargetY, ref _moveVelocityY, _moveSmoothTime, float.MaxValue, Config.TimePerFrameInSeconds);
         
         _view.Move(new Vector2f(_currentMoveX, _currentMoveY));
+        CameraMoved?.Invoke(_view.Center);
         
         _zoomTarget -= _wheelDelta * Config.WorldZoomSpeed;
         _zoomTarget = Math.Clamp(_zoomTarget, Config.WorldZoomMin, Config.WorldZoomMax);
