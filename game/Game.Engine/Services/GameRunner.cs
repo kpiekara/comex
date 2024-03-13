@@ -1,4 +1,5 @@
-﻿using Game.Engine.Configs;
+﻿using Game.Engine.Assets;
+using Game.Engine.Configs;
 using Game.Engine.Tree;
 using SFML.Graphics;
 using SFML.System;
@@ -9,6 +10,7 @@ namespace Game.Engine.Services;
 public interface IGameRunner
 {
     public IGameTree GameTree { get; }
+    public IAssetManager AssetManager { get; }
     public void Run();
 }
 
@@ -16,6 +18,9 @@ class GameRunner : IGameRunner
 {
     public IGameTree GameTree => _gameTree;
     readonly GameTree _gameTree = new();
+
+    public IAssetManager AssetManager => _assetManager;
+    private readonly AssetManager _assetManager = new();
     
     public void Run()
     {

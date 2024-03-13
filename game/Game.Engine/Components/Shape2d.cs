@@ -3,11 +3,11 @@ using SFML.System;
 
 namespace Game.Engine.Components;
 
-public class Visual : Drawable
+public class Shape2d : Drawable
 {
     private readonly Shape _shape;
     
-    public Visual(float radius, Color color)
+    public Shape2d(float radius, Color color)
     {
         _shape = new CircleShape(radius)
         {
@@ -15,7 +15,7 @@ public class Visual : Drawable
         };
     }
 
-    public Visual(float width, float height, Color color)
+    public Shape2d(float width, float height, Color color)
     {
         _shape = new RectangleShape(new Vector2f(width, height))
         {
