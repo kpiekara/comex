@@ -1,8 +1,11 @@
-﻿namespace Game.Engine.Tree;
+﻿using SFML.Graphics;
+
+namespace Game.Engine.Tree;
 
 public class GameObject
 {
     private readonly Dictionary<string, object> _components = new();
+    private readonly List<Drawable> _drawables = new();
     
     public bool Has<T>()
     {
@@ -17,13 +20,23 @@ public class GameObject
         }
         
         var name = typeof(T).Name;
-        if (_components.ContainsKey(name))
+        var success = _components.TryAdd(name, component);
+        if (!success)
         {
-            throw new Exception("Find me!");
+            throw new Exception("Unable to add component to drawables");
+        }
+
+        if (component is Drawable d)
+        {
+            _drawables.Add(d);
         }
         
-        _components.Add(name, component);
         return component;
+    }
+
+    public List<Drawable> GetDrawables()
+    {
+        return _drawables;
     }
 
     public T Get<T>()

@@ -29,14 +29,9 @@ class GameTree : Drawable, IGameTree
     {
         foreach (var element in _gameObjects)
         {
-            if (element.Has<Shape2d>())
+            foreach (var drawable in element.GetDrawables())
             {
-                target.Draw(element.Get<Shape2d>(), states);
-            }
-            
-            if (element.Has<Tile>())
-            {
-                target.Draw(element.Get<Tile>(), states);
+                target.Draw(drawable, states);
             }
         }
     }
