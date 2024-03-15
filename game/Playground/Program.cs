@@ -1,7 +1,9 @@
-﻿using Playground.Examples;
+﻿using Examples;
+using Playground.Examples;
 using Playground.System;
 
-RunExample<SimpleWindowExample>();
+//RunExample<SimpleWindowExample>();
+RunExample<VertexArrayExample>();
 
 static void RunExample<T>() where T : IRunnable, new()
 {
