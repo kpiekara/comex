@@ -8,6 +8,7 @@ public interface IAssetManager
 {
     void AddTileSet(string path, string resourceKey, Vector2u tileSize);
     Tile CreateTile(string resourceKey, uint tileId);
+    Texture GetTexture(string resourceKey);
 }
 
 public class AssetManager : IAssetManager
@@ -20,6 +21,11 @@ public class AssetManager : IAssetManager
         _textures[resourceKey] = new Texture(path);
         _textures[resourceKey].Smooth = false;
         _tileSizes[resourceKey] = new Vector2u(tileSize.X, tileSize.Y);
+    }
+
+    public Texture GetTexture(string resourceKey)
+    {
+        return _textures[resourceKey];
     }
 
     public Tile CreateTile(string resourceKey, uint tileId)

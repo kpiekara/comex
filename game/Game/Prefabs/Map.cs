@@ -1,40 +1,46 @@
 ﻿using Game.Engine.Assets;
+using Game.Engine.Components;
 using Game.Engine.Configs;
 using Game.Engine.Numeric;
 using Game.Engine.Tree;
 using Game.Resources;
+using SFML.System;
 
 namespace Game.Prefabs;
 
 public class Map : GameObject
 {
-    public Map(int height, int width, IGameTree tree, IAssetManager assetManager)
+    public TileMap TileMap { get; set; }
+    
+    public Map(uint width, uint height, IAssetManager assetManager)
     {
-        const float tileSize = 64;
-        var mapWidth = width * tileSize;
-        var mapHeight = height * tileSize;
+        var tileSize = new Vector2u(64, 64);
+        var mapSize = new Vector2u(height, width);
+        
+        var mapWidth = mapSize.X * tileSize.X;
+        var mapHeight = mapSize.Y * tileSize.Y;
+        
         var centerX = mapWidth / 2.0f - Config.ScreenWidth / 2.0f;
         var centerY = mapHeight / 2.0f - Config.ScreenHeight / 2.0f;
-        
-        var map = new MapTile[height][];
-        for (var i = 0; i < height; i++)
+
+        var tiles = new List<uint>();
+        for (uint i = 0; i < mapSize.X; i++)
         {
-            map[i] = new MapTile[width];
-            for (var j = 0; j < width; j++)
+            for (uint j = 0; j < mapSize.Y; j++)
             {
                 if (Randomization.Bool(0.1f))
                 {
-                    var stoneTile = assetManager.CreateTile(TileSets.BaseTileSet.Name, 2);
-                    map[i][j] = new MapTile(-centerX + j * tileSize, -centerY + i * tileSize, true, stoneTile);
+                    tiles.Add(2);
                 }
                 else
                 {
-                    var waterTile = assetManager.CreateTile(TileSets.BaseTileSet.Name, 1);
-                    map[i][j] = new MapTile(-centerX + j * tileSize, -centerY + i * tileSize, false, waterTile);
+                    tiles.Add(1);
                 }
-                
-                tree.Add(map[i][j]);
             }
         }
+
+        var texture = assetManager.GetTexture(TileSets.BaseTileSet.Name);
+        TileMap = Add(new TileMap(texture, tileSize, mapSize, tiles));
+        TileMap.Position = new Vector2f(-centerX, -centerY);
     }
 }
