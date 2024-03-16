@@ -11,7 +11,7 @@ People here have learned to make the best of what they've got, but life's tough.
 It's up to you to look after your crew, find food and weapons, and win battles. You can even start your own places on the little islands. Can you make it in this world?
 
 ## ⌛ Turnbased ⌛ ##
-Follow the adventure in this turn-based game featuring 2D graphics and a top-down view.
+Follow the adventure in this turn-based game featuring 2D graphics and a top-down view. Imagine an adventure that draws its aesthetics and mechanics from Heroes 3, combined with the systems found in roguelike games.
 
 ## 🌊 Explore 🌊
 Explore the vast oceans of this world and visit the cities where human civilization still thrives. Search through the remnants of fallen cities and explore ancient ruins.
