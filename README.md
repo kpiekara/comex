@@ -10,19 +10,35 @@ People here have learned to make the best of what they've got, but life's tough.
 
 It's up to you to look after your crew, find food and weapons, and win battles. You can even start your own places on the little islands. Can you make it in this world?
 
-## Techstack 
+## ⌛ Turnbased ⌛ ##
+Follow the adventure in this turn-based game featuring 2D graphics and a top-down view.
+
+## 🌊 Explore 🌊
+Explore the vast oceans of this world and visit the cities where human civilization still thrives. Search through the remnants of fallen cities and explore ancient ruins.
+
+## ⚔️ Battle ⚔️
+Gather your crew, train your soldiers, and take care of their gear. Hunt pirates, raid merchant ships, or conquer cities to create your own maritime kingdom. Enhance your skills to give your people an edge in simulated battles.
+
+## 💎 Trade 💎
+Earn money through trade, gather rumors, and control the economy to amass a fortune, or become the king of looting and sell your spoils.
+
+## About the project
+
+### Techstack
 
 |Technology|Solution|
 |---|---|
 |Language|C#/.NET|
-|Graphics|[SFML library](https://www.sfml-dev.org/)|
+|Multimedia Library|[SFML library](https://www.sfml-dev.org/)|
 
-## Tutorial 
-
-Here, you will find descriptions of the main topics related to this project. You will learn what specific parts of the code do and why certain decisions were made.
+## Knowledge 
+As part of this project, I plan to write a few short pieces that talk about why I made certain game design choices and point out the usual bumps you can run into in game development. 
 
 * [Application starter in SFML](docs/SFML%20application.md)
 * [Fixed time step loop](docs/Fixed%20time%20step.md)
+
+## SFML
+SFML provides a simple interface to the various components of your PC, to ease the development of games and multimedia applications. It is composed of five modules: system, window, graphics, audio and network.
 
 ## Milestones
 
