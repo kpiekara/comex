@@ -9,12 +9,15 @@ public interface IAssetManager
     void AddTileSet(string path, string resourceKey, Vector2u tileSize);
     Tile CreateTile(string resourceKey, uint tileId);
     Texture GetTexture(string resourceKey);
+    void AddFont(string path, string resourceKey);
+    Font GetFont(string basic);
 }
 
 public class AssetManager : IAssetManager
 {
     private readonly Dictionary<string, Texture> _textures = new();
     private readonly Dictionary<string, Vector2u> _tileSizes = new();
+    private readonly Dictionary<string, Font> _fonts = new();
     
     public void AddTileSet(string path, string resourceKey, Vector2u tileSize)
     {
@@ -26,6 +29,16 @@ public class AssetManager : IAssetManager
     public Texture GetTexture(string resourceKey)
     {
         return _textures[resourceKey];
+    }
+
+    public void AddFont(string path, string resourceKey)
+    {
+        _fonts.Add(resourceKey, new Font(path));
+    }
+
+    public Font GetFont(string resourceKey)
+    {
+        return _fonts[resourceKey];
     }
 
     public Tile CreateTile(string resourceKey, uint tileId)
