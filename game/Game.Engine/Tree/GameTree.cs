@@ -20,9 +20,20 @@ class GameTree : Drawable, IGameTree
         return gameObject;
     }
 
+    public void UpdateFixed(float time)
+    {
+        foreach (var element in _gameObjects)
+        {
+            element.UpdateFixed(time);
+        }
+    }
+
     public void Update(float time)
     {
-        // todo
+        foreach (var element in _gameObjects)
+        {
+            element.Update(time);
+        }
     }
 
     public void Draw(RenderTarget target, RenderStates states)

@@ -32,7 +32,7 @@ public class Camera
 
     public Camera(View view)
     {
-        _view = view;
+        _view = new View(view);
         _size = view.Size;
     }
 

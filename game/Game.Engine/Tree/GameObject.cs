@@ -43,4 +43,14 @@ public class GameObject
     {
         return (T)_components[typeof(T).Name];
     }
+
+    public virtual void Update(float dt)
+    {
+        
+    }
+
+    public virtual void UpdateFixed(float dt)
+    {
+        
+    }
 }

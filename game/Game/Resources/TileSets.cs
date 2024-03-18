@@ -10,5 +10,5 @@ public struct TileSetDefinition
 
 public static class TileSets
 {
-    public static readonly TileSetDefinition BaseTileSet = new TileSetDefinition() {Name = "basic_tileset", TileSize = new Vector2u(64, 64)};
+    public static readonly TileSetDefinition BaseTileSet = new() {Name = "basic_tileset", TileSize = new Vector2u(64, 64)};
 }
