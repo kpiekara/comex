@@ -8,6 +8,7 @@ namespace Game.Prefabs;
 public class FpsCounter : GameObject
 {
     private readonly Label _label;
+    private float counter = 1;
     
     public FpsCounter(Font font)
     {
@@ -19,6 +20,11 @@ public class FpsCounter : GameObject
 
     public override void Update(float dt)
     {
-        _label.SetText(Math.Floor(1 / dt).ToString(CultureInfo.InvariantCulture));
+        if (counter > 1)
+        {
+            _label.SetText(Math.Floor(1 / dt).ToString(CultureInfo.InvariantCulture));
+            counter = 0;
+        }
+        counter += dt;
     }
 }
