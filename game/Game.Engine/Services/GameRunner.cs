@@ -13,6 +13,7 @@ public interface IGameRunner
     IGameCanvas GameCanvas { get; }
     IGameTree GameTree { get; }
     IAssetManager AssetManager { get; }
+    IGameSettings Settings { get; }
     ICamera Camera { get; }
     void Run();
 }
@@ -27,6 +28,9 @@ class GameRunner : IGameRunner
 
     public IAssetManager AssetManager => _assetManager;
     private readonly AssetManager _assetManager = new();
+
+    public IGameSettings Settings => _settings;
+    private readonly GameSettings _settings = new();
 
     public ICamera Camera => _camera;
     private readonly Camera _camera;
@@ -47,7 +51,6 @@ class GameRunner : IGameRunner
     
     public void Run()
     {
-
         var clockFixed = new Clock();
         var clock = new Clock();
         var timeSinceLastUpdate = Time.Zero;
@@ -70,7 +73,12 @@ class GameRunner : IGameRunner
             
             _window.DispatchEvents();
             _window.Clear();
-            _camera.LimitCamera(_window);
+
+            if (_settings.LimitCameraToMap)
+            {
+                _camera.LimitCamera(_window);
+            }
+            
             _window.SetView(_camera.GetView());
             _window.Draw(_gameTree);
             _window.SetView(_gameCanvas.GetView());

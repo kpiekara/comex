@@ -14,7 +14,6 @@ public static class Config
     
     public static uint ScreenWidth => 1680;
     public static uint ScreenHeight => 1050;
-    
 
     static Config()
     {
