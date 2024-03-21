@@ -1,6 +1,5 @@
 ﻿using Game.Engine.Assets;
 using Game.Engine.Components;
-using Game.Engine.Configs;
 using Game.Engine.Numeric;
 using Game.Engine.Tree;
 using Game.Resources;
@@ -16,12 +15,6 @@ public class Map : GameObject
     {
         var tileSize = new Vector2u(64, 64);
         var mapSize = new Vector2u(height, width);
-        
-        var mapWidth = mapSize.X * tileSize.X;
-        var mapHeight = mapSize.Y * tileSize.Y;
-        
-        var centerX = mapWidth / 2.0f - Config.ScreenWidth / 2.0f;
-        var centerY = mapHeight / 2.0f - Config.ScreenHeight / 2.0f;
 
         var tiles = new List<uint>();
         for (uint i = 0; i < mapSize.X; i++)
@@ -41,6 +34,5 @@ public class Map : GameObject
 
         var texture = assetManager.GetTexture(TileSets.BaseTileSet.Name);
         TileMap = Add(new TileMap(texture, tileSize, mapSize, tiles));
-        TileMap.Position = new Vector2f(-centerX, -centerY);
     }
 }

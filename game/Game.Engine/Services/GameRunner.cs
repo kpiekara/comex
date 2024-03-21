@@ -13,13 +13,14 @@ public interface IGameRunner
     IGameCanvas GameCanvas { get; }
     IGameTree GameTree { get; }
     IAssetManager AssetManager { get; }
+    ICamera Camera { get; }
     void Run();
 }
 
 class GameRunner : IGameRunner
 {
     public IGameCanvas GameCanvas => _gameCanvas;
-    private GameCanvas _gameCanvas;
+    private readonly GameCanvas _gameCanvas;
     
     public IGameTree GameTree => _gameTree;
     readonly GameTree _gameTree = new();
@@ -27,27 +28,31 @@ class GameRunner : IGameRunner
     public IAssetManager AssetManager => _assetManager;
     private readonly AssetManager _assetManager = new();
 
+    public ICamera Camera => _camera;
+    private readonly Camera _camera;
+    private readonly RenderWindow _window;
+
     public GameRunner()
     {
-        _gameCanvas = new GameCanvas(1680, 1050);
+        var mode = new VideoMode(1680, 1050);
+        _window = new RenderWindow(mode, "SFML works!");
+        
+        _gameCanvas = new GameCanvas(_window.Size.X, _window.Size.Y);
+        _gameTree.AttachEvents(_window);
+        
+        _camera = new Camera(_window.GetView());
+        _camera.AttachEvents(_window);
+        _gameTree.AttachCameraEvents(_camera);
     }
     
     public void Run()
     {
-        var mode = new VideoMode(1680, 1050);
-        var window = new RenderWindow(mode, "SFML works!");
-        
-        _gameTree.AttachEvents(window);
-        
-        var camera = new Camera(window.GetView());
-        camera.AttachEvents(window);
-        _gameTree.AttachCameraEvents(camera);
 
         var clockFixed = new Clock();
         var clock = new Clock();
         var timeSinceLastUpdate = Time.Zero;
         
-        while (window.IsOpen)
+        while (_window.IsOpen)
         {
             var dt = clockFixed.Restart();
             timeSinceLastUpdate += dt;
@@ -56,20 +61,21 @@ class GameRunner : IGameRunner
                 timeSinceLastUpdate -= Config.TimePerFrame;
                 _gameTree.UpdateFixed(Config.TimePerFrameInSeconds);
                 _gameCanvas.UpdateFixed(Config.TimePerFrameInSeconds);
-                camera.Update(Config.TimePerFrameInSeconds);
+                _camera.Update(Config.TimePerFrameInSeconds);
             }
 
             var currentTime = clock.Restart().AsSeconds();
             _gameTree.Update(currentTime);
             _gameCanvas.Update(currentTime);
             
-            window.DispatchEvents();
-            window.Clear();
-            window.SetView(camera.GetView());
-            window.Draw(_gameTree);
-            window.SetView(_gameCanvas.GetView());
-            window.Draw(_gameCanvas);
-            window.Display();
+            _window.DispatchEvents();
+            _window.Clear();
+            _camera.LimitCamera(_window);
+            _window.SetView(_camera.GetView());
+            _window.Draw(_gameTree);
+            _window.SetView(_gameCanvas.GetView());
+            _window.Draw(_gameCanvas);
+            _window.Display();
         }
     }
 }

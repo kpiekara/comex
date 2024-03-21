@@ -8,7 +8,12 @@ namespace Game.Engine.Services;
 
 public delegate void CameraMovedEventHandler(Vector2f position);
 
-public class Camera
+public interface ICamera
+{
+    public void SetCameraAreaSize(float x, float y);
+}
+
+public class Camera : ICamera
 {
     public event CameraMovedEventHandler? CameraMoved;
     
@@ -29,6 +34,8 @@ public class Camera
     private readonly float _moveSmoothTime = 0.1f;
     
     private readonly Vector2f _size;
+
+    private Vector2f _areaSize;
 
     public Camera(View view)
     {
@@ -76,6 +83,35 @@ public class Camera
         _view.Size = _size * _currentZoom;
         _wheelDelta = 0;
     }
+
+    public void LimitCamera(RenderWindow window)
+    {
+        var topLeft = window.MapPixelToCoords(new Vector2i(0, 0), _view);
+        var fix = new Vector2f();
+        if (topLeft.X < 0)
+        {
+            fix.X = -(topLeft.X - 0);
+        }
+        
+        if (topLeft.Y < 0)
+        {
+            fix.Y = -(topLeft.Y - 0);
+        }
+        
+        var bottomRight = window.MapPixelToCoords(new Vector2i((int)window.Size.X, (int)window.Size.Y), _view);
+        
+        if (bottomRight.X > _areaSize.X)
+        {
+            fix.X = -(bottomRight.X - _areaSize.X);
+        }
+        
+        if (bottomRight.Y > _areaSize.Y)
+        {
+            fix.Y = -(bottomRight.Y - _areaSize.Y);
+        }
+        
+        _view.Move(fix);
+    }
     
     public View GetView()
     {
@@ -91,5 +127,11 @@ public class Camera
                 _wheelDelta += args.Delta;
             }
         };
+    }
+
+    public void SetCameraAreaSize(float x, float y)
+    {
+        _areaSize = new Vector2f(x, y);
+        _view.Move(new Vector2f(x / 2, y / 2));
     }
 }
