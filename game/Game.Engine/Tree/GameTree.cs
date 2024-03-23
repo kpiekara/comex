@@ -51,12 +51,30 @@ class GameTree : Drawable, IGameTree
     {
         window.KeyPressed += (sender, args) =>
         {
-            
+            if (sender is RenderWindow rw)
+            {
+                foreach (var element in _gameObjects)
+                {
+                    if (element.Has<KeyboardInput>())
+                    {
+                        element.Get<KeyboardInput>().KeyEvent(args.Code, KeyboardEventKind.Pressed);
+                    }
+                }
+            }
         };
 
         window.KeyReleased += (sender, args) =>
         {
-
+            if (sender is RenderWindow rw)
+            {
+                foreach (var element in _gameObjects)
+                {
+                    if (element.Has<KeyboardInput>())
+                    {
+                        element.Get<KeyboardInput>().KeyEvent(args.Code, KeyboardEventKind.Released);
+                    }
+                }
+            }
         };
 
         window.MouseButtonPressed += (sender, args) =>
