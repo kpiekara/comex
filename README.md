@@ -65,3 +65,7 @@ SFML provides a simple interface to the various components of your PC, to ease t
 - [ ] driver character decisions based on life goals and aspirations
 - [ ] change life goals and aspiration due to important events in live
 - [ ] build characters based on character trait pars (neagitve + positive)
+
+## World
+- [ ] procedurally generated world
+
