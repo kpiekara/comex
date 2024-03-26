@@ -95,3 +95,9 @@ SFML provides a simple interface to the various components of your PC, to ease t
 |Island generation|![](https://geps.dev/progress/0)|
 |Treasures|![](https://geps.dev/progress/0)|
 
+|Menu|⭐|
+|---|---|
+|Main menu|![](https://geps.dev/progress/0)|
+|Settings menu|![](https://geps.dev/progress/0)|
+|Load Game|![](https://geps.dev/progress/0)|
+|Save Game|![](https://geps.dev/progress/0)|
