@@ -42,30 +42,56 @@ SFML provides a simple interface to the various components of your PC, to ease t
 
 ## Milestones
 
-- [ ] Tileset map (vertex array)
-- [ ] Movement system (A* algorithm)
-- [ ] Visiting locations (scene manager)
-- [ ] Turns system
-- [ ] Enemies (FSM)
-- [ ] Fight module (battle simulation, hero stats, player stats)
-- [ ] Simplified trading (economy simulator, cities economy, village economy, world event system)
-- [ ] Simplified politics (relations simulator, likes and dislikes)
+## Engine features
 
-## Economy system - Rumor Module
+|Basic features|⭐|
+|---|---|
+|Window creation |![](https://geps.dev/progress/100)|
+|Game tree |![](https://geps.dev/progress/100)|
+|Dynamic screen resolution|![](https://geps.dev/progress/0)|
 
-- [ ] event propagation with graph
-- [ ] event geneation system
+|Tileset map|⭐|
+|---|---|
+|Display map|![](https://geps.dev/progress/100)   |
+|Single draw call|![](https://geps.dev/progress/100)   |
+|Animations|![](https://geps.dev/progress/100)   |
+|Dynamic chunk load |![](https://geps.dev/progress/0)   |
+|Autotiler|![](https://geps.dev/progress/0)  |
 
-## Battle system - Blitz Module
+|GUI|⭐|
+|---|---|
+|Simple label|![](https://geps.dev/progress/100)|
+|FPS counter|![](https://geps.dev/progress/100)|
+|Simple button|![](https://geps.dev/progress/0)|
+|Layouts|![](https://geps.dev/progress/0)|
+|Scene manager|![](https://geps.dev/progress/0)|
+|Windows|![](https://geps.dev/progress/0)|
+|Controls|![](https://geps.dev/progress/0)|
 
-- [ ] symulate fights based on army factors
+|Algorithms|⭐|
+|---|---|
+|A*|![](https://geps.dev/progress/0)|
+|Quad Tree|![](https://geps.dev/progress/0)|
 
-## Relations system - Ambition Module
+## Game features
 
-- [ ] driver character decisions based on life goals and aspirations
-- [ ] change life goals and aspiration due to important events in live
-- [ ] build characters based on character trait pars (neagitve + positive)
+|Game mechanics|⭐|
+|---|---|
+|Travel on game map|![](https://geps.dev/progress/0)|
+|Turns system|![](https://geps.dev/progress/0)|
+|Visiting locations|![](https://geps.dev/progress/0)|
+|Inventory system|![](https://geps.dev/progress/0)|
+|Trading system|![](https://geps.dev/progress/0)|
 
-## World
-- [ ] procedurally generated world
+|Modules|⭐|
+|---|---|
+|World politics|![](https://geps.dev/progress/0)|
+|Enemies |![](https://geps.dev/progress/0)|
+|World ecnonomy|![](https://geps.dev/progress/0)|
+|Battle simulator|![](https://geps.dev/progress/0)|
+
+|Procedural map generation|⭐|
+|---|---|
+|Island generation|![](https://geps.dev/progress/0)|
+|Treasures|![](https://geps.dev/progress/0)|
 
