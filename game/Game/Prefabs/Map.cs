@@ -1,8 +1,8 @@
 ﻿using Game.Engine.Assets;
 using Game.Engine.Components;
-using Game.Engine.Numeric;
 using Game.Engine.Tree;
 using Game.Resources;
+using Game.Utils;
 using SFML.System;
 
 namespace Game.Prefabs;
@@ -11,28 +11,32 @@ public class Map : GameObject
 {
     public TileMap TileMap { get; set; }
     
-    public Map(uint width, uint height, IAssetManager assetManager)
+    public Map(MapFile mapFile, IAssetManager assetManager)
     {
         var tileSize = new Vector2u(64, 64);
-        var mapSize = new Vector2u(height, width);
-
+        
         var tiles = new List<uint>();
-        for (uint i = 0; i < mapSize.X; i++)
+        for (uint i = 0; i < mapFile.X; i++)
         {
-            for (uint j = 0; j < mapSize.Y; j++)
+            for (uint j = 0; j < mapFile.Y; j++)
             {
-                if (Randomization.Bool(0.1f))
+                var node = mapFile.Nodes[i, j];
+                if (node.IsStone)
                 {
                     tiles.Add(2);
                 }
-                else
+                else if (node.IsWater)
                 {
                     tiles.Add(1);
+                }
+                else
+                {
+                    throw new Exception("Find me!");
                 }
             }
         }
 
         var texture = assetManager.GetTexture(TileSets.BaseTileSet.Name);
-        TileMap = Add(new TileMap(texture, tileSize, mapSize, tiles));
+        TileMap = Add(new TileMap(texture, tileSize, new Vector2u(mapFile.X, mapFile.Y), tiles));
     }
 }
